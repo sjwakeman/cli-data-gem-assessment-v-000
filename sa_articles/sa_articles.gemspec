@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'seekingalpha/articles/version'
+require 'sa_articles/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "seekingalpha-articles"
-  spec.version       = Seekingalpha::Articles::VERSION
+  spec.name          = "sa_articles"
+  spec.version       = SaArticles::VERSION
   spec.authors       = ["Scott Wakeman"]
   spec.email         = ["swakeman@ca.rr.com"]
 
