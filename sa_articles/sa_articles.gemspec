@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Seekingalpha articles scraping for long and short trading ideas.}
   spec.description   = %q{swakeman}
-  spec.homepage      = "www.seekingalpha.com."
+  spec.homepage      = "https://www.seekingalpha.com"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
