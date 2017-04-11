@@ -30,7 +30,7 @@ class SaArticles::CLI
       end
     end
   end
-
+hello
   def goodbye
     puts "See you tomorrow for more articles."
   end
