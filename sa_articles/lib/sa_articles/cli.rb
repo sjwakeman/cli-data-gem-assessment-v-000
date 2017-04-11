@@ -11,7 +11,7 @@ class SaArticles::CLI
     puts "Today's seekingalpha articles:"
     @articles = SaArticles::Article.today
     @articles.each.with_index(1) do |article, i|
-      puts "#{i}. #{article.title} - {article.author} - #{article.url}" 
+      puts "#{i}. #{article.title} - {article.author} - #{article.url}"
     end
   end
 
@@ -20,7 +20,7 @@ class SaArticles::CLI
     while input != "exit"
     puts "Enter the number of the article you would like to read or type list to see the articles again or type exit:"
       input = gets.strip.downcase
-      if input.to_i>0 #&& input.to_i<3
+      if input.to_i>0 && input.to_i<3
         the_article = @articles [input.to_i-1]
         puts puts "#{the_article.title} - {the_article.author} - #{the_article.url}"
       elsif input == "list"
@@ -30,7 +30,7 @@ class SaArticles::CLI
       end
     end
   end
-hello
+
   def goodbye
     puts "See you tomorrow for more articles."
   end

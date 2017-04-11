@@ -9,14 +9,14 @@ class SaArticles::Article
     article_1 = self.new
     article_1.title = "1. article"
     article_1.author ="http://seekingalpha.com/author/A"
-    article_1.url ="http://seekingalpha.com/article/1"  
+    article_1.url ="http://seekingalpha.com/article/1"
     #https://seekingalpha.com/stock-ideas
     #https://seekingalpha.com/stock-ideas/long-ideas
-    
+
     article_2 = self.new
     article_2.title = "2. article"
     article_2.author ="http://seekingalpha.com/author/B"
-    article_2.url ="http://seekingalpha.com/article/2"  
+    article_2.url ="http://seekingalpha.com/article/2"
     #https://seekingalpha.com/stock-ideas
     #https://seekingalpha.com/stock-ideas/short-ideas
     [article_1, article_2]
