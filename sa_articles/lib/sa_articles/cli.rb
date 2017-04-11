@@ -20,9 +20,9 @@ class SaArticles::CLI
     while input != "exit"
     puts "Enter the number of the article you would like to read or type list to see the articles again or type exit:"
       input = gets.strip.downcase
-      if input.to_i>0 && input.to_i<3
+      if input.to_i>0 #&& input.to_i<3
         the_article = @articles [input.to_i-1]
-        puts puts "#{the_article.title} - {the_article.author} - #{the_article.url}"
+        puts "#{the_article.title} - {the_article.author} - #{the_article.url}"
       elsif input == "list"
         list_articles
       else
