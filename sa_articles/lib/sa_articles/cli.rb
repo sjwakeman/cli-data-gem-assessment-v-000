@@ -8,8 +8,8 @@ class SaArticles::CLI
 
   def list_articles
     #here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
-    puts "Today's seekingalpha articles:"
-    @articles = SaArticles::Article.ideas
+    puts "Seekingalpha articles:"
+    @articles = SaArticles::Articles.ideas
     @articles.each.with_index(1) do |article, i|
       puts "#{i}. #{article.title} - {article.author} - #{article.url}"
     end
