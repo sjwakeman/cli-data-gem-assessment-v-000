@@ -16,8 +16,8 @@ class SaArticles::Article
       longs = []
       #go to https://seekingalpha.com/stock-ideas/long-ideas
       #extract the ideas properties (title, author and url)
-      
-      
+
+
 
     end
 
@@ -28,9 +28,9 @@ class SaArticles::Article
 
 
 
-      
-    end  
-      
+
+    end
+
     #article_1 = self.new
     #article_1.title = "1. article"
     #article_1.author ="http://seekingalpha.com/author/A"
