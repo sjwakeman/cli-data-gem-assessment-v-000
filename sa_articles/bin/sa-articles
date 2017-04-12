@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
-
+require "bundler/setup"
+require "sa_articles"
 require './lib/sa_articles'
+
 SaArticles::CLI.new.call
