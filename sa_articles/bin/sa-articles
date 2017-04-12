@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
 
-SaArticles::CLI.new.call 
+require './lib/sa_articles'
+SaArticles::CLI.new.call
