@@ -1,4 +1,4 @@
-class SaArticles::articles
+class SaArticles::Articles
   attr_accessor :title, :author, :url
   def self.ideas
     #scrape and return a bunch of instances of long or short articles
