@@ -48,5 +48,5 @@ class SaArticles::Articles
     #article_2.url ="http://seekingalpha.com/article/2"
     #https://seekingalpha.com/stock-ideas
     #https://seekingalpha.com/stock-ideas/short-ideas
-
+  end
 end
