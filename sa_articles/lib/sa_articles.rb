@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
-require 'pry'
+require 'pry' #eventually take this out
 
 require_relative "./sa_articles/version"
 require_relative './sa_articles/articles'
