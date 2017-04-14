@@ -31,7 +31,17 @@ class SaArticles::Articles
     doc = Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/long-ideas"))
     binding.pry
     #article_1 = self.new
-    #article_1.title = "1. article"
+
+    #titles = doc.search(“a.a-title”).text All Titles
+    #title = doc.search("a.a-title")[0].text returns First Title
+    #=> "GoPro Trade-Up Offer Solidifies That 2017 Will Be A Turnaround Year"
+
+    #title = doc.search("a.a-title")[1].text returns Second Title
+    #=> "Harmony Gold: Stable Earning For A Undervalued Gold Producer"
+
+    #title = doc.search("a.a-title")[2].text returns Third Title
+    #=> "Is Barrick Gold A Good Long-Term Investment?"
+
     #article_1.author ="http://seekingalpha.com/author/A"
     #article_1.url ="http://seekingalpha.com/article/1"
     #https://seekingalpha.com/stock-ideas
