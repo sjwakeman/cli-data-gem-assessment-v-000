@@ -10,7 +10,7 @@ class SaArticles::CLI
   def long_or_short
     input = nil
     while input != "long" || input != "short"
-    puts "Would you like to list the ten most recent long or short trading articles?"
+    puts "Would you like to list the ten most recent long or short Seeking Alpha trading articles?"
       input = gets.strip.downcase
       if input = long
         long_articles = @long_list
