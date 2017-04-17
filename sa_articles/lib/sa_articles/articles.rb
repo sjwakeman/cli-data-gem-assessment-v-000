@@ -29,34 +29,56 @@ class SaArticles::Articles
 
   def self.scrape_longs
     doc = Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/long-ideas"))
-    binding.pry
-    #article_1 = self.new
+    #binding.pry
 
-    #titles = doc.search(“a.a-title”).text All Titles
-    #title = doc.search("a.a-title")[0].text returns First Title
-    #=> "GoPro Trade-Up Offer Solidifies That 2017 Will Be A Turnaround Year"
+    long_article = self.new
 
-    #title = doc.search("a.a-title")[1].text returns Second Title
-    #=> "Harmony Gold: Stable Earning For A Undervalued Gold Producer"
+    titles = doc.search(“a.a-title”).text.strip #returns All Titles
+    first_long_title = doc.search("a.a-title")[0].text.strip #returns First Title
 
-    #title = doc.search("a.a-title")[2].text returns Third Title
-    #=> "Is Barrick Gold A Good Long-Term Investment?"
+    second_long_title = doc.search("a.a-title")[1].text.strip #returns Second Title
 
-    #article_1.author ="http://seekingalpha.com/author/A"
-    #article_1.url ="http://seekingalpha.com/article/1"
-    #https://seekingalpha.com/stock-ideas
+    third_long_title = doc.search("a.a-title")[2].text.strip #returns Third Title
+
+    ten_long_titles = doc.search("a.a-title")[0..10].text.strip
+
+    #first_url = url = doc.search('a.a-title').first.attr("href")
+    first_long_url = doc.search('a.a-title')[0].attr("href")
+    #=> "/article/4062487-gopro-trade-offer-solidifies-2017-will-turnaround-year"
+
+    second_long_url = doc.search('a.a-title')[1].attr("href")
+    #=> "/article/4062485-harmony-gold-stable-earning-undervalued-gold-producer"
+
+    third_long_url = doc.search('a.a-title')[2].attr("href")
+    #=> "/article/4062469-barrick-gold-good-long-term-investment"
+
+
+    #long_article.author ="http://seekingalpha.com/author/A"
     #https://seekingalpha.com/stock-ideas/long-ideas
     [longs]
   end
 
   def self.scrape_shorts
     doc = Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/short-ideas"))
-    binding.pry
-    #article_2 = self.new
-    #article_2.title = "2. article"
-    #article_2.author ="http://seekingalpha.com/author/B"
-    #article_2.url ="http://seekingalpha.com/article/2"
-    #https://seekingalpha.com/stock-ideas
+    #binding.pry
+
+    short_article = self.new
+
+    short_titles = doc.search(“a.a-title”).text.strip #returns All Titles
+    first_short_title = doc.search("a.a-title")[0].text.strip #returns First Title
+    second__short_title = doc.search("a.a-title")[1].text.strip #returns Second Title
+    third__short_title = doc.search("a.a-title")[2].text.strip #returns Third Title
+    short_titles = doc.search("a.a-title")[0..10].text.strip #returns 10 Titles
+
+    #first_short_url = url = doc.search('a.a-title').first.attr("href")
+    first_short_url = doc.search('a.a-title')[0].attr("href")
+    second_short_url = doc.search('a.a-title')[1].attr("href")
+    third_short_url = doc.search('a.a-title')[2].attr("href")
+
+
+    #short_article.author ="http://seekingalpha.com/author/B"
     #https://seekingalpha.com/stock-ideas/short-ideas
+
+    [shorts]
   end
 end
