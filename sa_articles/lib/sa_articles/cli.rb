@@ -11,8 +11,23 @@ class SaArticles::CLI
     puts "Seekingalpha articles:"
     @articles = SaArticles::Articles.ideas
     @articles.each.with_index(1) do |article, i|
-      puts "#{i}. #{article.title} - {article.author} - #{article.url}"
+      puts "#{i}. #{article.title} - #{article.url}"
     end
+  end
+
+  def long_or_short
+    input = nil
+    while input != "long" || input != "short"
+    puts "Would you like to list the ten most recent long or short trading articles?"
+      input = gets.strip.downcase
+      if input = long
+        long_articles = @long_list
+      elsif input = short
+        short_articles = @short_list
+      else
+        puts "Not sure what you want? Type long or short"
+      end
+    end    
   end
 
   def menu
@@ -22,7 +37,7 @@ class SaArticles::CLI
       input = gets.strip.downcase
       if input.to_i>0 #&& input.to_i<3
         the_article = @articles [input.to_i-1]
-        puts "#{the_article.title} - {the_article.author} - #{the_article.url}"
+        puts "#{the_article.title} - #{the_article.url}"
       elsif input == "list"
         list_articles
       else
