@@ -1,18 +1,10 @@
 #our CLI Controller
 class SaArticles::CLI
   def call
+    long_or_short
     list_articles
     menu
     goodbye
-  end
-
-  def list_articles
-    #here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
-    puts "Seekingalpha articles:"
-    @articles = SaArticles::Articles.ideas
-    @articles.each.with_index(1) do |article, i|
-      puts "#{i}. #{article.title} - #{article.url}"
-    end
   end
 
   def long_or_short
@@ -27,7 +19,16 @@ class SaArticles::CLI
       else
         puts "Not sure what you want? Type long or short"
       end
-    end    
+    end
+  end
+
+  def list_articles
+    #here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
+    puts "Seekingalpha articles:"
+    @articles = SaArticles::Articles.ideas
+    @articles.each.with_index(1) do |article, i|
+      puts "#{i}. #{article.title} - #{article.url}"
+    end
   end
 
   def menu
