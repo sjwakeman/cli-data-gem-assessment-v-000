@@ -13,9 +13,11 @@ class SaArticles::CLI
     puts "Would you like to list the ten most recent long or short Seeking Alpha trading articles?"
       input = gets.strip.downcase
       if input = long
-        long_articles = @long_list
+        @long_articles = SaArticles::Articles.scrape_longs
+        #https://seekingalpha.com/stock-ideas/long-ideas
       elsif input = short
-        short_articles = @short_list
+        @short_articles = SaArticles::Articles.scrape_shorts
+        #https://seekingalpha.com/stock-ideas/short-ideas
       else
         puts "Not sure what you want? Type long or short"
       end
