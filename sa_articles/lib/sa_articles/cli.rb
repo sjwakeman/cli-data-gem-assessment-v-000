@@ -50,6 +50,6 @@ class SaArticles::CLI
   end
 
   def goodbye
-    puts "See you tomorrow for more articles."
+    puts "Check back later for more articles."
   end
 end
