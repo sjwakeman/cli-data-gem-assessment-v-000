@@ -1,50 +1,40 @@
 #our CLI Controller
 class SaArticles::CLI
   def call
-    long_or_short
     list_articles
     menu
     goodbye
   end
 
-  def long_or_short
-    input = nil
-    while input != "long" || input != "short"
-    puts "Would you like to list the ten most recent long or short Seeking Alpha trading articles?"
-      input = gets.strip.downcase
-      if input = long
-        @long_articles = SaArticles::Articles.scrape_longs
-        #https://seekingalpha.com/stock-ideas/long-ideas
-      elsif input = short
-        @short_articles = SaArticles::Articles.scrape_shorts
-        #https://seekingalpha.com/stock-ideas/short-ideas
-      else
-        puts "Not sure what you want? Type long or short"
-      end
-    end
-  end
-
   def list_articles
-    #here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
-    puts "Seekingalpha articles:"
+    puts "The ten most recent stock trading articles from Seekingalpha:"
     @articles = SaArticles::Articles.ideas
     @articles.each.with_index(1) do |article, i|
       puts "#{i}. #{article.title} - #{article.url}"
     end
   end
 
+    #here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
+    #puts "Seekingalpha articles:"
+    #@articles = SaArticles::Articles.ideas
+    #@articles.each.with_index(1) do |article, i|
+      #puts "#{i}. #{article.title} - #{article.url}"
+    #end
+  #end
+
   def menu
     input = nil
     while input != "exit"
-    puts "Enter the number of the article you would like to read or type list to see the articles again or type exit:"
+      puts "Enter the number 1 for Long articles, the number 2 for Short articles, type list to see the articles again or type exit?"
       input = gets.strip.downcase
+
       if input.to_i>0 #&& input.to_i<3
-        the_article = @articles [input.to_i-1]
+        the_article = @articles[input.to_i-1]
         puts "#{the_article.title} - #{the_article.url}"
       elsif input == "list"
         list_articles
       else
-        puts "Not sure what you want? Type 1, 2, list or exit"
+        puts "Not sure what you want. Type list to see the articles again or type exit"
       end
     end
   end
