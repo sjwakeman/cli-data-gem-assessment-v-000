@@ -133,7 +133,7 @@ class SaArticles::Articles
     #short_article_10.title = doc.search("a.a-title")[9].text.strip
     #short_article_10.url = doc.search('a.a-title')[9].attr("href")
 
-    [short_article_1, short_article_2, short_article_3, short_article_4, short_article_5, short_article_6, short_article_7, short_article_8, short_article_9, short_article_10]
+    #[short_article_1, short_article_2, short_article_3, short_article_4, short_article_5, short_article_6, short_article_7, short_article_8, short_article_9, short_article_10]
 
     #shorts = self.new
     #shorts.title = "Short stock trading articles"
