@@ -12,7 +12,7 @@ class SaArticles::CLI
     puts " Seekingalpha stock trading articles:"
     input = nil
       puts "Enter the number 1 for Long articles, the number 2 for Short articles."
-      while input != "1" || input != "2"
+      while input != "exit"
       input = gets.strip.downcase
       case input
       when "1"
@@ -22,7 +22,7 @@ class SaArticles::CLI
         puts "Short stock trading articles"
           short_articles
         else
-          puts "Not sure what you want. Enter the number 1 for Long articles, the number 2 for Short articles."
+          puts "Not sure what you want. Enter the number 1 for Long articles, the number 2 for Short articles or exit."
       end
     end
   end
