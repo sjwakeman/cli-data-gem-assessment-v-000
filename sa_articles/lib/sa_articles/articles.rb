@@ -5,49 +5,68 @@ class SaArticles::Articles
     #SaArticles::ArticlesScraper.new(https://seekingalpha.com/stock-ideas/long-ideas)
     #SaArticles::ArticlesScraper.new(https://seekingalpha.com/stock-ideas/short-ideas)
 
-    self.scrape_articles
-
-      articles = []
-
-      articles << self.scrape_longs
-      #articles << self.scrape_shorts
-
+    self.scrape_longs
+      long_article = []
+      long_article << self.scrape_longs
       #SaArticles::ArticleScraper.new("https://seekingalpha.com/stock-ideas/long-ideas")
+      long_article
+
+      self.scrape_shorts
+      short_article = []
+      short_article << self.scrape_shorts
       #SaArticles::ArticleScraper.new("https://seekingalpha.com/stock-ideas/short-ideas")
-      articles
+      short_article
   end
 
+
   def self.scrape_longs
+    #go to long-ideas find the articles
+      #extract the properties
+      #instantiate articles
+
     doc = Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/long-ideas"))
     title = doc.search("a.a-title")[0..10].text.strip
     url = doc.search('a.a-title')[0..10].attr("href")
 
-    article = self.new
-    article.title = doc.search("a.a-title")[0..10].text.strip
-    article.url = doc.search('a.a-title')[0..10].attr("href")
-
-    #go to long-ideas find the articles
-    #extract the properties
-    #instantiate articles
-
-    #go to short-ideas find the articles
-    #extract the properties
-    #instantiate articles
-
-
+    long_article = self.new
+    long_article.title = doc.search("a.a-title")[0].text.strip
+    long_article.url = doc.search('a.a-title')[0].attr("href")
+    long_article
 
     #longs = self.new
     #longs.title = "Long stock trading articles"
     #longs.url = "https://seekingalpha.com/stock-ideas/long-ideas"
+  end
+
+  def self.scrape_shorts
+    #go to short-ideas find the articles
+      #extract the properties
+      #instantiate articles
+
+    doc = Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/short-ideas"))
+    title = doc.search("a.a-title")[0..10].text.strip
+    url = doc.search('a.a-title')[0..10].attr("href")
+
+    short_article = self.new
+    short_article.title = doc.search("a.a-title")[0].text.strip
+    short_article.url = doc.search('a.a-title')[0].attr("href")
+    short_article
 
     #shorts = self.new
     #shorts.title = "Short stock trading articles"
     #shorts.url = "https://seekingalpha.com/stock-ideas/short-ideas"
 
-    #[longs, shorts]
-
   end
 end
+
+
+
+
+
+
+    #[longs, shorts]
+
+
 
 
 
