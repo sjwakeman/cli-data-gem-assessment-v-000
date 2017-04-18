@@ -47,20 +47,20 @@ class SaArticles::CLI
     input = nil
     while input != "exit"
       puts "Enter the number for the article you are interested in reading or exit."
-      #input = gets.strip.downcase
+      input = gets.strip.downcase
 
-      #if input.to_i>0
-        #the_article = @articles[input.to_i-1]
-        #puts "#{the_article.title} - #{the_article.url}"
-      #elsif input == "list"
-        #list_articles
-      #else
-        #puts "Not sure what you want. Type list to see the articles again or type exit"
-      #end
+      if input.to_i>0
+        the_article = @articles[input.to_i-1]
+        puts "#{the_article.title} - #{the_article.url}"
+      elsif input == "list"
+        list_articles
+      else
+        puts "Not sure what you want. Type list to see the articles again or type exit"
+      end
     end
   end
 
-  #def goodbye
-    #puts "Check back later for more articles."
-  #end
+  def goodbye
+    puts "Check back later for more articles."
+  end
 end

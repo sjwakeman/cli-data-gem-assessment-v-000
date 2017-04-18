@@ -31,7 +31,6 @@ class SaArticles::Articles
     long_article_1 = self.new
     long_article_1.title = doc.search("a.a-title")[0].text.strip
     long_article_1.url = doc.search('a.a-title')[0].attr("href")
-    long_article_1
 
     long_article_2 = self.new
     long_article_2.title = doc.search("a.a-title")[1].text.strip
@@ -71,8 +70,6 @@ class SaArticles::Articles
 
     [long_article_1, long_article_2, long_article_3, long_article_4, long_article_5, long_article_6, long_article_7, long_article_8, long_article_9, long_article_10]
 
-    #longs = self.new
-    #longs.title = "Long stock trading articles"
     #longs.url = "https://seekingalpha.com/stock-ideas/long-ideas"
   end
 
@@ -90,42 +87,42 @@ class SaArticles::Articles
     short_article_1.url = doc.search('a.a-title')[0].attr("href")
 
     short_article_2 = self.new
-    short_article_2.title = doc.search("a.a-title")[0].text.strip
-    short_article_2.url = doc.search('a.a-title')[0].attr("href")
+    short_article_2.title = doc.search("a.a-title")[1].text.strip
+    short_article_2.url = doc.search('a.a-title')[1].attr("href")
 
 
     short_article_3 = self.new
-    short_article_3.title = doc.search("a.a-title")[0].text.strip
-    short_article_3.url = doc.search('a.a-title')[0].attr("href")
+    short_article_3.title = doc.search("a.a-title")[2].text.strip
+    short_article_3.url = doc.search('a.a-title')[2].attr("href")
 
 
     short_article_4 = self.new
-    short_article_4.title = doc.search("a.a-title")[0].text.strip
-    short_article_4.url = doc.search('a.a-title')[0].attr("href")
+    short_article_4.title = doc.search("a.a-title")[3].text.strip
+    short_article_4.url = doc.search('a.a-title')[3].attr("href")
 
     short_article_5 = self.new
-    short_article_5.title = doc.search("a.a-title")[0].text.strip
-    short_article_5.url = doc.search('a.a-title')[0].attr("href")
+    short_article_5.title = doc.search("a.a-title")[4].text.strip
+    short_article_5.url = doc.search('a.a-title')[4].attr("href")
 
     short_article_6 = self.new
-    short_article_6.title = doc.search("a.a-title")[0].text.strip
-    short_article_6.url = doc.search('a.a-title')[0].attr("href")
+    short_article_6.title = doc.search("a.a-title")[5].text.strip
+    short_article_6.url = doc.search('a.a-title')[5].attr("href")
 
     short_article_7 = self.new
-    short_article_7.title = doc.search("a.a-title")[0].text.strip
-    short_article_7.url = doc.search('a.a-title')[0].attr("href")
+    short_article_7.title = doc.search("a.a-title")[6].text.strip
+    short_article_7.url = doc.search('a.a-title')[6].attr("href")
 
     short_article_8 = self.new
-    short_article_8.title = doc.search("a.a-title")[0].text.strip
-    short_article_8.url = doc.search('a.a-title')[0].attr("href")
+    short_article_8.title = doc.search("a.a-title")[7].text.strip
+    short_article_8.url = doc.search('a.a-title')[7].attr("href")
 
     short_article_9 = self.new
-    short_article_9.title = doc.search("a.a-title")[0].text.strip
-    short_article_9.url = doc.search('a.a-title')[0].attr("href")
+    short_article_9.title = doc.search("a.a-title")[8].text.strip
+    short_article_9.url = doc.search('a.a-title')[8].attr("href")
 
     short_article_10 = self.new
-    short_article_10.title = doc.search("a.a-title")[0].text.strip
-    short_article_10.url = doc.search('a.a-title')[0].attr("href")
+    short_article_10.title = doc.search("a.a-title")[9].text.strip
+    short_article_10.url = doc.search('a.a-title')[9].attr("href")
 
     [short_article_1, short_article_2, short_article_3, short_article_4, short_article_5, short_article_6, short_article_7, short_article_8, short_article_9, short_article_10]
 
