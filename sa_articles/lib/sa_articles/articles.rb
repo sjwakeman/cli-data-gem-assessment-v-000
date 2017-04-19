@@ -29,10 +29,10 @@ class SaArticles::Articles
     url = doc.search('a.a-title')[0..9].attr("href")
 
     longs = self.new
-    longs.title = doc.search("a.a-title")[0..9].text.strip
-    longs.url = doc.search('a.a-title')[0..9].attr("href")
-    [longs.title, longs.url]
-
+    longs_title = doc.search("a.a-title")[0..9].text.strips
+    longs_url = doc.search('a.a-title')[0..9].attr("href")
+    [longs_title, longs_url]
+    binding.pry
     #long_article_1 = self.new
     #long_article_1.title = doc.search("a.a-title")[0].text.strip
     #long_article_1.url = doc.search('a.a-title')[0].attr("href")
@@ -88,9 +88,9 @@ class SaArticles::Articles
     url = doc.search('a.a-title')[0..9].attr("href")
 
     shorts = self.new
-    shorts.title = doc.search("a.a-title")[0..9].text.strip
-    shorts.url = doc.search('a.a-title')[0..9].attr("href")
-    [shorts.title, shorts.url]
+    shorts_title = doc.search("a.a-title")[0..9].text.strip
+    shorts_url = doc.search('a.a-title')[0..9].attr("href")
+    [shorts_title, shorts_url]
 
     #short_article_1 = self.new
     #short_article_1.title = doc.search("a.a-title")[0].text.strip

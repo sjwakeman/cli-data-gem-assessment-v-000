@@ -4,8 +4,8 @@ class SaArticles::CLI
     long_or_short
     long_articles
     short_articles
-    #menu
-    #goodbye
+    menu
+    goodbye
   end
 
   def long_or_short
@@ -30,8 +30,9 @@ class SaArticles::CLI
   def long_articles
     puts "Seekingalpha Long stock trading articles:"
     @long_articles = SaArticles::Articles.ideas
+    binding.pry
     @long_articles.each.with_index(1) do |article, i|
-      puts "#{i}. #{article.title} - #{article.url}"
+      puts "#{i}. #{article.longs_title} - #{article.longs_url}"
     end
   end
 
