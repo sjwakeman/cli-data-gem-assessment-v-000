@@ -25,12 +25,12 @@ class SaArticles::Articles
       #instantiate articles
 
     doc = Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/long-ideas"))
-    title = doc.search("a.a-title")[0..9].text.strip
-    url = doc.search('a.a-title')[0..9].attr("href")
+    title = doc.search("a.a-title")[0-50:10].text.strip
+    url = doc.search('a.a-title')[0-50:10].attr("href")
 
     longs = self.new
-    longs_title = doc.search("a.a-title")[0..9].text.strips
-    longs_url = doc.search('a.a-title')[0..9].attr("href")
+    longs_title = doc.search("a.a-title")[0-50:10].text.strips
+    longs_url = doc.search('a.a-title')[0-50:10].attr("href")
     [longs_title, longs_url]
     binding.pry
     #long_article_1 = self.new
@@ -84,12 +84,12 @@ class SaArticles::Articles
       #instantiate articles
 
     doc = Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/short-ideas"))
-    title = doc.search("a.a-title")[0..9].text.strip
-    url = doc.search('a.a-title')[0..9].attr("href")
+    title = doc.search("a.a-title")[0-50:10].text.strip
+    url = doc.search('a.a-title')[0-50:10].attr("href")
 
     shorts = self.new
-    shorts_title = doc.search("a.a-title")[0..9].text.strip
-    shorts_url = doc.search('a.a-title')[0..9].attr("href")
+    shorts_title = doc.search("a.a-title")[0-50:10].text.strip
+    shorts_url = doc.search('a.a-title')[0-50:10].attr("href")
     [shorts_title, shorts_url]
 
     #short_article_1 = self.new
