@@ -11,7 +11,7 @@ class SeekingAlphaArticles::Articles
        )
   end
 
-  def initialize(title=nil, url=nil, url=nil, author=nil)
+  def initialize(title=nil, url=nil, author=nil)
     @title = title
     @url = url
     @author = author
