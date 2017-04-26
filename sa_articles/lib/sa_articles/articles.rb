@@ -5,7 +5,7 @@ class SaArticles::Articles
 
   def self.new_from_index_page(r)
     self.new(
-       r.css('div.a-info a').first.text.strip 
+       r.css('div.a-info a').first.text.strip,
        r.css("a.a-title").text.strip,
        r.css('a.a-title').attr("href"),
        r.css('div.a-info a').last.text.strip
@@ -15,7 +15,8 @@ class SaArticles::Articles
        binding.pry
   end
 
-  def initialize(title=nil, url=nil, author=nil)
+  def initialize(stock_symbol=nil, title=nil, url=nil, author=nil)
+    @stock_symbol = stock_symbol
     @title = title
     @url = url
     @author = author

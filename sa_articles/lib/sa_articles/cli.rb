@@ -65,7 +65,7 @@ class SaArticles::CLI
     puts ""
     puts "----------- #{article.title} -----------"
     puts ""
-    #puts "Stock Symbol:           #{article.stock_symbol}"
+    puts "Stock Symbol:           #{article.stock_symbol}"
     #puts "Date:           #{article.date}"
     puts "Author:           #{article.author}"
     puts "Website:            #{article.url}"
@@ -78,7 +78,7 @@ class SaArticles::CLI
     puts "---------- Articles #{from_number} - #{from_number+9} ----------"
     puts ""
     SaArticles::Articles.all[from_number-1, 10].each.with_index(from_number) do |article, index|
-      puts "#{index}. #{article.title}" #- #{article.stock_symbol}
+      puts "#{index}. #{article.title} - #{article.stock_symbol}"
     end
   end
 
