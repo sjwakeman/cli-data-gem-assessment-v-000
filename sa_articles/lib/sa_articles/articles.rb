@@ -1,4 +1,4 @@
-class SeekingAlphaArticles::Articles
+class SaArticles::Articles
 
   attr_accessor :title, :url, :author
   @@all = []
