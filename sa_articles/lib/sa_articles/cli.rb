@@ -51,7 +51,7 @@ class SeekingAlphaArticles::CLI
     puts "---------- Articles #{from_number} - #{from_number+9} ----------"
     puts ""
     SeekingAlphaArticles::Articles.all[from_number-1, 10].each.with_index(from_number) do |article, index|
-      puts "#{index}. #{article.title} - #{article.stock_symbol}"
+      puts "#{index}. #{article.title}" #- #{article.stock_symbol}
     end
   end
 

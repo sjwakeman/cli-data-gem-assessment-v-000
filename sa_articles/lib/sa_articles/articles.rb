@@ -15,21 +15,21 @@ class SeekingAlphaArticles::Articles
     @title = title
     @url = url
     @author = author
-    @stock_symbol = stock_symbol
-    @date = date
+    #@stock_symbol = stock_symbol
+    #@date = date
   end
 
   def self.all
     @@all
   end
 
-  def stock_symbol
-    @stock_symbol ||= doc.css('div.a-info').first.text.strip
-  end
+  #def stock_symbol
+    #@stock_symbol ||= doc.css('div.a-info').first.text.strip
+  #end
 
-  def date
-    @date ||= doc.css('div.a-info').text.strip
-  end
+  #def date
+    #@date ||= doc.css('div.a-info').text.strip
+  #end
 
   def doc
     @doc ||= Nokogiri::HTML(open(self.url))
