@@ -1,4 +1,4 @@
-class SeekingAlphaArticles::CLI
+class SaArticles::CLI
 
   def long_or_short
     puts " Seekingalpha stock trading articles:"
@@ -20,13 +20,13 @@ class SeekingAlphaArticles::CLI
   end
 
   def long_call
-    SeekingAlphaArticles::LongScraper.new.make_articles
+    SaArticles::LongScraper.new.make_articles
     puts "SeekingAlpha Long stock trading articles"
     start
   end
 
   def short_call
-    SeekingAlphaArticles::ShortScraper.new.make_articles
+    SaArticles::ShortScraper.new.make_articles
     puts "SeekingAlpha Short stock trading articles"
     start
   end
@@ -42,7 +42,7 @@ class SeekingAlphaArticles::CLI
     puts "What article would you like more information on?"
     input = gets.strip
 
-    article = SeekingAlphaArticles::Articles.find(input.to_i)
+    article = SaArticles::Articles.find(input.to_i)
 
     print_article(article)
 
@@ -75,7 +75,7 @@ class SeekingAlphaArticles::CLI
     puts ""
     puts "---------- Articles #{from_number} - #{from_number+9} ----------"
     puts ""
-    SeekingAlphaArticles::Articles.all[from_number-1, 10].each.with_index(from_number) do |article, index|
+    SaArticles::Articles.all[from_number-1, 10].each.with_index(from_number) do |article, index|
       puts "#{index}. #{article.title}" #- #{article.stock_symbol}
     end
   end

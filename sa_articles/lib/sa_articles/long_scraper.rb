@@ -9,7 +9,7 @@ class SaArticles::LongScraper
 
   def make_articles
     scrape_articles_index.each do |r|
-        SaArticles:Articles.new_from_index_page(r)
+        SaArticles::Articles.new_from_index_page(r)
     end
   end
 end
