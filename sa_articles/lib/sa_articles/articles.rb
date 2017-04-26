@@ -9,12 +9,16 @@ class SaArticles::Articles
        r.css('a.a-title').attr("href"),
        r.css('div.a-info a').text.strip
        )
+       #r.css('div.a-info').text.strip
+       #=> "VRX\u2022 Today, 8:02 AM \u2022 Biotechnocrat\u202210\u00A0Comments"
+       #binding.pry
   end
 
   def initialize(title=nil, url=nil, author=nil)
     @title = title
     @url = url
     @author = author
+    @@all << self
     #@stock_symbol = stock_symbol
     #@date = date
   end
@@ -25,6 +29,10 @@ class SaArticles::Articles
 
   def self.find(id)
     self.all[id-1]
+  end
+
+  def title
+    @title ||=r.css("a.a-title").text.strip
   end
 
   #def stock_symbol
