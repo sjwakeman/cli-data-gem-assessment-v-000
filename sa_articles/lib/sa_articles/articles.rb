@@ -23,6 +23,10 @@ class SaArticles::Articles
     @@all
   end
 
+  def self.find(id)
+    self.all[id-1]
+  end
+
   #def stock_symbol
     #@stock_symbol ||= doc.css('div.a-info').first.text.strip
   #end
