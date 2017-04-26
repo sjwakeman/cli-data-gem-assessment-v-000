@@ -1,67 +1,61 @@
-#our CLI Controller
-class SaArticles::CLI
+class SeekingAlphaArticles::CLI
+
   def call
-    long_or_short
-    long_articles
-    short_articles
-    menu
-    goodbye
+    SeekingAlphaArticles::Scraper.new.make_articles
+    puts "SeekingAlpha stock trading articles"
+    start
   end
 
-  def long_or_short
-    puts " Seekingalpha stock trading articles:"
-    input = nil
-      puts "Enter the number 1 for Long articles, the number 2 for Short articles."
-      while input != "exit"
-      input = gets.strip.downcase
-      case input
-      when "1"
-        puts "Long stock trading articles"
-          long_articles
-      when "2"
-        puts "Short stock trading articles"
-          short_articles
-        else
-          puts "Not sure what you want. Enter the number 1 for Long articles, the number 2 for Short articles or exit."
-      end
+  def start
+    puts ""
+    puts "What number articles would you like to see? 1-10, 11-20, 21-30, 31-40, 41-50, 51-60, 61-70, 71-80, 81-90, or 91-100?"
+    input = gets.strip.to_i
+
+    print_articles(input)
+
+    puts ""
+    puts "What article would you like more information on?"
+    input = gets.strip
+
+    article = SeekingAlphaArticles::Article.find(input.to_i)
+
+    print_article(article)
+
+    puts ""
+    puts "Would you like to read another article? Enter Y or N"
+
+    input = gets.strip.downcase
+    if input == "y"
+      start
+    else
+      puts ""
+      puts "Check back later for more articles."
+      exit
     end
   end
 
-  def long_articles
-    puts "Seekingalpha Long stock trading articles:"
-    @long_articles = SaArticles::Articles.ideas
-    binding.pry
-    @long_articles.each.with_index(1) do |article, i|
-      puts "#{i}. #{article.longs_title} - #{article.longs_url}"
+  def print_article(article)
+    puts ""
+    puts "----------- #{article.title} - #{article.position} -----------"
+    puts ""
+    puts "Stock Symbol:           #{article.stock_symbol}"
+    puts "Date:           #{article.date}"
+    puts "Author:           #{article.author}"
+    puts "Website:            #{article.url}"
+    puts ""
+    puts "---------------Summary--------------"
+    puts ""
+    puts "#{article.summary}"
+    puts ""
+  end
+
+  def print_articles(from_number)
+    puts ""
+    puts "---------- Articles #{from_number} - #{from_number+9} ----------"
+    puts ""
+    SeekingAlphaArticles::Article.all[from_number-1, 10].each.with_index(from_number) do |article, index|
+      puts "#{index}. #{article.title} - #{article.stock_symbol}"
     end
   end
 
-  def short_articles
-    puts "Seekingalpha stock trading articles:"
-    @short_articles = SaArticles::Articles.ideas
-    @short_articles.each.with_index(1) do |article, i|
-      puts "#{i}. #{article.title} - #{article.url}"
-    end
-  end
-
-  def menu
-    input = nil
-    while input != "exit"
-      puts "Enter the number for the article you are interested in reading or exit."
-      input = gets.strip.downcase
-
-      if input.to_i>0
-        the_article = @articles[input.to_i-1]
-        puts "#{the_article.title} - #{the_article.url}"
-      elsif input == "list"
-        list_articles
-      else
-        puts "Not sure what you want. Type list to see the articles again or type exit"
-      end
-    end
-  end
-
-  def goodbye
-    puts "Check back later for more articles."
-  end
 end
