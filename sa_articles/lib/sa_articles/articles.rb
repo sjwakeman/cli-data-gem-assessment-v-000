@@ -7,7 +7,7 @@ class SaArticles::Articles
     self.new(
        r.css("a.a-title").text.strip,
        r.css('a.a-title').attr("href"),
-       r.css('div.a-info a').text.strip
+       r.css('div.a-info a').last.text.strip
        )
        #r.css('div.a-info').text.strip
        #=> "VRX\u2022 Today, 8:02 AM \u2022 Biotechnocrat\u202210\u00A0Comments"
