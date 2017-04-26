@@ -5,4 +5,5 @@ require 'pry' #eventually take this out
 require_relative "./sa_articles/version"
 require_relative './sa_articles/articles'
 require_relative './sa_articles/cli'
-require_relative './sa_articles/symbol'
+require_relative './sa_articles/long_scraper'
+require_relative './sa_articles/short_scraper'
