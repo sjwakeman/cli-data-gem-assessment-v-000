@@ -13,7 +13,3 @@ class SaArticles::LongScraper
     end
   end
 end
-
-
-
-end

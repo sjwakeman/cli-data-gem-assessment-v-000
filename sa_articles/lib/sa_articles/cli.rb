@@ -36,16 +36,13 @@ class SeekingAlphaArticles::CLI
 
   def print_article(article)
     puts ""
-    puts "----------- #{article.title} - #{article.position} -----------"
+    puts "----------- #{article.title} -----------"
     puts ""
-    puts "Stock Symbol:           #{article.stock_symbol}"
-    puts "Date:           #{article.date}"
+    #puts "Stock Symbol:           #{article.stock_symbol}"
+    #puts "Date:           #{article.date}"
     puts "Author:           #{article.author}"
     puts "Website:            #{article.url}"
-    puts ""
-    puts "---------------Summary--------------"
-    puts ""
-    puts "#{article.summary}"
+
     puts ""
   end
 
