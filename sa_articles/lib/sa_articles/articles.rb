@@ -5,13 +5,14 @@ class SaArticles::Articles
 
   def self.new_from_index_page(r)
     self.new(
+       r.css('div.a-info a').first.text.strip 
        r.css("a.a-title").text.strip,
        r.css('a.a-title').attr("href"),
        r.css('div.a-info a').last.text.strip
        )
        #r.css('div.a-info').text.strip
        #=> "VRX\u2022 Today, 8:02 AM \u2022 Biotechnocrat\u202210\u00A0Comments"
-       #binding.pry
+       binding.pry
   end
 
   def initialize(title=nil, url=nil, author=nil)
