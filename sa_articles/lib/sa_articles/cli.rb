@@ -8,11 +8,9 @@ class SaArticles::CLI
       input = gets.strip.downcase
       case input
       when "1"
-        puts "Long stock trading articles"
-          long_call
+        long_call
       when "2"
-        puts "Short stock trading articles"
-          short_call
+        short_call
         else
           puts "Not sure what you want. Enter the number 1 for Long articles, the number 2 for Short articles or exit."
       end
