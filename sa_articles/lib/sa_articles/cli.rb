@@ -1,8 +1,33 @@
 class SeekingAlphaArticles::CLI
 
-  def call
+  def long_or_short
+    puts " Seekingalpha stock trading articles:"
+    input = nil
+      puts "Enter the number 1 for Long articles, the number 2 for Short articles."
+      while input != "exit"
+      input = gets.strip.downcase
+      case input
+      when "1"
+        puts "Long stock trading articles"
+          long_call
+      when "2"
+        puts "Short stock trading articles"
+          short_call
+        else
+          puts "Not sure what you want. Enter the number 1 for Long articles, the number 2 for Short articles or exit."
+      end
+    end
+  end
+
+  def long_call
     SeekingAlphaArticles::LongScraper.new.make_articles
-    puts "SeekingAlpha stock trading articles"
+    puts "SeekingAlpha Long stock trading articles"
+    start
+  end
+
+  def short_call
+    SeekingAlphaArticles::ShortScraper.new.make_articles
+    puts "SeekingAlpha Short stock trading articles"
     start
   end
 
