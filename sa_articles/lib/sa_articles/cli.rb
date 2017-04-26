@@ -8,7 +8,7 @@ class SeekingAlphaArticles::CLI
 
   def start
     puts ""
-    puts "What number articles would you like to see? 1-10, 11-20, 21-30, 31-40, 41-50, 51-60, 61-70, 71-80, 81-90, or 91-100?"
+    puts "What number articles would you like to see?"
     input = gets.strip.to_i
 
     print_articles(input)
