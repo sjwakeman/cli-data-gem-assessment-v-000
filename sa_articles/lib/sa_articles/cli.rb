@@ -67,8 +67,8 @@ class SaArticles::CLI
     puts ""
     puts "Stock Symbol:           #{article.stock_symbol}"
     #puts "Date:           #{article.date}"
-    puts "Author:           #{article.author}"
-    puts "Website:            #{article.url}"
+    puts "Author:                 #{article.author}"
+    puts "Website:                #{article.url}"
 
     puts ""
   end
