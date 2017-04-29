@@ -10,9 +10,6 @@ class SaArticles::Articles
        "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
        r.css('div.a-info a').last.text.strip
        )
-       #r.css('div.a-info').text.strip
-       #=> "VRX\u2022 Today, 8:02 AM \u2022 Biotechnocrat\u202210\u00A0Comments"
-       #binding.pry
   end
 
   def initialize(stock_symbol=nil, title=nil, url=nil, author=nil)
@@ -21,8 +18,6 @@ class SaArticles::Articles
     @url = url
     @author = author
     @@all << self
-    #@stock_symbol = stock_symbol
-    #@date = date
   end
 
   def self.all
@@ -40,10 +35,6 @@ class SaArticles::Articles
   def stock_symbol
     @stock_symbol ||= doc.css('div.a-info').first.text.strip
   end
-
-  #def date
-    #@date ||= doc.css('div.a-info').text.strip
-  #end
 
   def doc
     @doc ||= Nokogiri::HTML(open(self.url))

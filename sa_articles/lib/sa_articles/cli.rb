@@ -20,16 +20,12 @@ class SaArticles::CLI
   def long_call
     SaArticles::LongScraper.new.make_articles
     puts "SeekingAlpha Long stock trading articles"
-    #input = gets.strip.to_i
-    #print_articles(input)
     start
   end
 
   def short_call
     SaArticles::ShortScraper.new.make_articles
     puts "SeekingAlpha Short stock trading articles"
-    #input = gets.strip.to_i
-    #print_articles(input)
     start
   end
 
@@ -66,7 +62,6 @@ class SaArticles::CLI
     puts "----------- #{article.title} -----------"
     puts ""
     puts "Stock Symbol:           #{article.stock_symbol}"
-    #puts "Date:           #{article.date}"
     puts "Author:                 #{article.author}"
     puts "Website:                #{article.url}"
 
