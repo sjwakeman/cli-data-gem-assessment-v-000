@@ -3,7 +3,7 @@ class SaArticles::CLI
   def long_or_short
     puts " Seekingalpha stock trading articles:"
     input = nil
-      puts "Enter the number 1 for Long articles, the number 2 for Short articles."
+      puts "Enter the number 1 for Long articles, or the number 2 for Short articles."
       while input != "exit"
       input = gets.strip.downcase
       case input
@@ -12,7 +12,7 @@ class SaArticles::CLI
       when "2"
         short_call
         else
-          puts "Not sure what you want. Enter the number 1 for Long articles, the number 2 for Short articles or exit."
+          puts "Not sure what you want. Enter the number 1 for Long articles, the number 2 for Short articles, or exit."
       end
     end
   end
@@ -37,7 +37,7 @@ class SaArticles::CLI
     print_articles(input)
 
     puts ""
-    puts "What article would you like more information on?"
+    puts "What article number would you like more information on?"
     input = gets.strip
 
     article = SaArticles::Articles.find(input.to_i)
@@ -45,7 +45,7 @@ class SaArticles::CLI
     print_article(article)
 
     puts ""
-    puts "Would you like to read another article? Enter Y or N"
+    puts "Would you like to read another article? Enter y or n"
 
     input = gets.strip.downcase
     if input == "y"
