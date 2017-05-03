@@ -1,22 +1,14 @@
 class SaArticles::Articles
 
-  attr_accessor :stock_symbol, :title, :url, :author
+  attr_accessor :stock_symbol, :title, :url, :author, :summary
   @@all = []
 
-  def self.new_from_index_page(r)
-    self.new(
-       r.css('div.a-info a').first.text.strip,
-       r.css("a.a-title").text.strip,
-       "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
-       r.css('div.a-info a').last.text.strip
-       )
-  end
-
-  def initialize(stock_symbol=nil, title=nil, url=nil, author=nil)
+  def initialize(stock_symbol=nil, title=nil, url=nil, author=nil, summary=nil)
     @stock_symbol = stock_symbol
     @title = title
     @url = url
     @author = author
+    @summary = summary
     @@all << self
   end
 
@@ -28,13 +20,18 @@ class SaArticles::Articles
     self.all[id-1]
   end
 
-  def title
-    @title ||=r.css("a.a-title").text.strip
-  end
+  #def summary
+    #@summary ||= url.css('div.article-summary')
+    #('div.article-summary article-width')
+  #end
 
-  def stock_symbol
-    @stock_symbol ||= doc.css('div.a-info').first.text.strip
-  end
+  #def title
+    #@title ||=r.css("a.a-title").text.strip
+  #end
+
+  #def stock_symbol
+    #@stock_symbol ||= doc.css('div.a-info').first.text.strip
+  #end
 
   def doc
     @doc ||= Nokogiri::HTML(open(self.url))

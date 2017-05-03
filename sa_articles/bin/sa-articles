@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require "bundler/setup"
-require "sa_articles"
-require './lib/sa_articles'
+require_relative '../lib/sa_articles'
 
 SaArticles::CLI.new.long_or_short

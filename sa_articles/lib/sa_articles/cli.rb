@@ -18,13 +18,13 @@ class SaArticles::CLI
   end
 
   def long_call
-    SaArticles::LongScraper.new.make_articles
+    SaArticles::Scraper.new.make_articles("long-ideas")
     puts "SeekingAlpha Long stock trading articles"
     start
   end
 
   def short_call
-    SaArticles::ShortScraper.new.make_articles
+    SaArticles::Scraper.new.make_articles("short-ideas")
     puts "SeekingAlpha Short stock trading articles"
     start
   end
@@ -64,7 +64,7 @@ class SaArticles::CLI
     puts "Stock Symbol:           #{article.stock_symbol}"
     puts "Author:                 #{article.author}"
     puts "Website:                #{article.url}"
-
+    puts "Summary:                #{article.summary}"
     puts ""
   end
 
