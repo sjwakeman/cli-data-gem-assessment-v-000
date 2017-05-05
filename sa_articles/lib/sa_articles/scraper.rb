@@ -17,6 +17,8 @@ class SaArticles::Scraper
        #make summary
        #s.css("div.a-sum")# undefined local variable s
        #open("https://seekingalpha.com#{r.css('a.a-title').attr("href")})"
+       #summary = ("https://seekingalpha.com#{r.css('a.a-title').attr("href")}")
+       #summary.article-summary
     )
   end
         #+>https://seekingalpha.com/article/4068081-apples-bottom-line-strong-appears
@@ -25,7 +27,6 @@ class SaArticles::Scraper
        #{}"https://seekingalpha.com#{r.css('a.a-title').attr("href")}"
        #div.article-summary.article-width div.a-sum
        #('div.article-summary article-width')
-
 
   def make_articles(ext)
     scrape_articles_index(ext).each do |r|
@@ -39,21 +40,23 @@ class SaArticles::Scraper
   end
 
   def scrape_article_summary
-    self.get_article_summary.css("div.a-sum")
+    self.get_article_summary.css("div.article-summary")
+    #self.get_article_summary.css("div.a-sum")
   end
 
   def new_from_summary_page(s)
     SaArticles.new(
-    s.css("div.a-sum")
+    s.css("div.article-summary")
+    #s.css("div.a-sum")
     )
   end
 
   def make_summary
     scrape_article_summary.each do |s|
       new_from_summary_page(s)
-    article.summary << s 
     end
   end
+
 
   #def get_article_summary
     #doc = Nokogiri::HTML(open("https://seekingalpha.com#{r.css('a.a-title').attr("href")}))"))

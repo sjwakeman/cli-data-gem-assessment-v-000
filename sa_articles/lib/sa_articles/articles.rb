@@ -25,14 +25,6 @@ class SaArticles::Articles
     #('div.article-summary article-width')
   #end
 
-  #def title
-    #@title ||=r.css("a.a-title").text.strip
-  #end
-
-  #def stock_symbol
-    #@stock_symbol ||= doc.css('div.a-info').first.text.strip
-  #end
-
   def doc
     @doc ||= Nokogiri::HTML(open(self.url))
   end

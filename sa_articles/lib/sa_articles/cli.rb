@@ -44,6 +44,10 @@ class SaArticles::CLI
 
     print_article(article)
 
+    summary = SaArticles::Scraper.new_from_summary_page(s)
+    puts ""
+    puts "#{new_from_summary_page(s)}"
+
     puts ""
     puts "Would you like to read another article? Enter y or n"
 
