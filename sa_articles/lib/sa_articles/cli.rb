@@ -1,7 +1,7 @@
 class SaArticles::CLI
 
   def long_or_short
-    puts " Seekingalpha stock trading articles:"
+    puts "Seekingalpha stock trading articles:"
     input = nil
       puts "Enter the number 1 for Long articles, or the number 2 for Short articles."
       while input != "exit"

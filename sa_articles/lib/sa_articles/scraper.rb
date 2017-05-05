@@ -1,5 +1,4 @@
 class SaArticles::Scraper
-  attr_accessor :scrape_summary
 
   def get_page(ext)
     Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/#{ext}"))
@@ -15,6 +14,8 @@ class SaArticles::Scraper
        r.css("a.a-title").text.strip,
        "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
        r.css('div.a-info a').last.text.strip
+       #make summary
+       #s.css("div.a-sum")# undefined local variable s
        #open("https://seekingalpha.com#{r.css('a.a-title').attr("href")})"
     )
   end
@@ -50,6 +51,7 @@ class SaArticles::Scraper
   def make_summary
     scrape_article_summary.each do |s|
       new_from_summary_page(s)
+    article.summary << s 
     end
   end
 
