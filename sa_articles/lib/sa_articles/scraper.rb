@@ -1,4 +1,5 @@
 class SaArticles::Scraper
+  attr_accessor :link
 
   def get_page(ext)
     Nokogiri::HTML(open("https://seekingalpha.com/stock-ideas/#{ext}"))
@@ -12,14 +13,20 @@ class SaArticles::Scraper
     SaArticles::Articles.new(
        r.css('div.a-info a').first.text.strip,
        r.css("a.a-title").text.strip,
-       "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
-       r.css('div.a-info a').last.text.strip
+       article_link = "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
+       r.css('div.a-info a').last.text.strip,
+    )
+       summary = Nokogiri(open(article_link))
+       article_summary = summary.css("div.a-sum").text
+
+       #binding.pry
+      # HTML(open(@link.css("div.article-summary")))#can use link.css to parse summary from URL for article
        #make summary
        #s.css("div.a-sum")# undefined local variable s
        #open("https://seekingalpha.com#{r.css('a.a-title').attr("href")})"
        #summary = ("https://seekingalpha.com#{r.css('a.a-title').attr("href")}")
        #summary.article-summary
-    )
+
   end
         #+>https://seekingalpha.com/article/4068081-apples-bottom-line-strong-appears
        #r.css('a.a-title').attr("href")
@@ -36,7 +43,8 @@ class SaArticles::Scraper
 
   def get_article_summary
     new_from_index_page(r) #(runs method to be able to open scraped result)
-    Nokogiri::HTML(open("https://seekingalpha.com#{r.css('a.a-title').attr("href")}"))
+    #Nokogiri::HTML(open("https://seekingalpha.com#{r.css('a.a-title').attr("href")}"))
+    Nokogiri::HTML(open(article_link))
   end
 
   def scrape_article_summary
@@ -44,19 +52,19 @@ class SaArticles::Scraper
     #self.get_article_summary.css("div.a-sum")
   end
 
-  def new_from_summary_page(s)
+  def new_from_summary_page(article_link)
     SaArticles.new(
-    s.css("div.article-summary")
+    article_link.css("div.article-summary")
     #s.css("div.a-sum")
     )
   end
 
   def make_summary
     scrape_article_summary.each do |s|
-      new_from_summary_page(s)
+      new_from_summary_page(link)
     end
   end
-
+end
 
   #def get_article_summary
     #doc = Nokogiri::HTML(open("https://seekingalpha.com#{r.css('a.a-title').attr("href")}))"))
@@ -87,4 +95,3 @@ class SaArticles::Scraper
     #self.get_article_summary.css('div.article-summary article-width')
     #self.get_article_summary.css('div.article-summary article-width div.a-sum")
 #binding.pry
-end

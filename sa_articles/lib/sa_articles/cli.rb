@@ -68,7 +68,8 @@ class SaArticles::CLI
     puts "Stock Symbol:           #{article.stock_symbol}"
     puts "Author:                 #{article.author}"
     puts "Website:                #{article.url}"
-    puts "Summary:                #{article.summary}"
+    puts ""
+    puts "Summary:                #{SaArticles::Scraper.make_summary}"
     puts ""
   end
 
