@@ -15,8 +15,12 @@ class SaArticles::Scraper
        r.css("a.a-title").text.strip,
        article_link = "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
        r.css('div.a-info a').last.text.strip
-
-
+       #article_summary = article_link.css("div.a-sum").text
+       #=>/home/sjwakeman/code/labs/cli-data-gem-assessment-v-000/sa_articles/lib/sa_articles/scraper.rb:18:in `new_from_index_page': undefined method `css'
+       #for #<String:0x000000015c8090> (NoMethodError)
+       #article_link.css("div.a-sum").text
+       #/home/sjwakeman/code/labs/cli-data-gem-assessment-v-000/sa_articles/lib/sa_articles/scraper.rb:21:in `new_from_index_page': undefined method `css'
+       #for #<String:0x000000023cfd28> (NoMethodError)
     )
     #binding.pry
 
@@ -64,18 +68,18 @@ class SaArticles::Scraper
     #end
   #end
 
-  def article_summary_website
-    summary = Nokogiri(open(article_link))
-  end
+  #def article_summary_website
+    #summary = Nokogiri(open(article_link))
+  #end
 
-  def scrape_summary
-    article_summary = summary.css("div.a-sum").text
-  end
+  #def scrape_summary
+    #article_summary = summary.css("div.a-sum").text
+  #end
 
-  def make_summary
-    scrape_summary
-    self
-  end
+  #def make_summary
+    #scrape_summary
+    #self
+  #end
 end
 
   #def get_article_summary

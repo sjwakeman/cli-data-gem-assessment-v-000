@@ -1,5 +1,5 @@
 class SaArticles::CLI
-
+  attr_accessor :article_link
   def long_or_short
     puts "Seekingalpha stock trading articles:"
     input = nil
@@ -69,7 +69,7 @@ class SaArticles::CLI
     puts "Author:                 #{article.author}"
     puts "Website:                #{article.url}"
     puts ""
-    puts "Summary:                #{article.summary}"
+    puts "Summary:                #{@article_link}"
     puts ""
   end
 
