@@ -15,9 +15,19 @@ class SaArticles::Scraper
        r.css("a.a-title").text.strip,
        article_link = "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
        r.css('div.a-info a').last.text.strip
+       #{}"https://seekingalpha.com#{r.css('a.a-title').attr("href div.a-sum").text.strip}"
+       #=>/home/sjwakeman/code/labs/cli-data-gem-assessment-v-000/sa_articles/lib/sa_articles/scraper.rb:18:in `new_from_index_page': undefined method `text'
+       #for nil:NilClass (NoMethodError)
+       #{}"https://seekingalpha.com#{r.css('a.a-title').attr("href")("div.a-sum").text.strip}"
+       #scraper.rb:18: syntax error, unexpected '(', e
+       #xpecting tSTRING_DEND (SyntaxError)
+       #....css('a.a-title').attr("href")("div.a-sum").text.strip}"
        #article_summary = article_link.css("div.a-sum").text
        #=>/home/sjwakeman/code/labs/cli-data-gem-assessment-v-000/sa_articles/lib/sa_articles/scraper.rb:18:in `new_from_index_page': undefined method `css'
        #for #<String:0x000000015c8090> (NoMethodError)
+       #article_link.css('div.a-sum').text
+       #/home/sjwakeman/code/labs/cli-data-gem-assessment-v-000/sa_articles/lib/sa_articles/scraper.rb:21:in `new_from_index_page': undefined method `css'
+       #for #<String:0x00000003237988> (NoMethodError)
        #article_link.css("div.a-sum").text
        #/home/sjwakeman/code/labs/cli-data-gem-assessment-v-000/sa_articles/lib/sa_articles/scraper.rb:21:in `new_from_index_page': undefined method `css'
        #for #<String:0x000000023cfd28> (NoMethodError)
