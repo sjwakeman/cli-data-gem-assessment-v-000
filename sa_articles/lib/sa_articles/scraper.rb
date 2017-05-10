@@ -15,10 +15,10 @@ class SaArticles::Scraper
        r.css("a.a-title").text.strip,
        article_link = "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
        r.css('div.a-info a').last.text.strip
-       #{}"https://seekingalpha.com#{r.css('a.a-title').attr("href div.a-sum").text.strip}"
+       #"https://seekingalpha.com#{r.css('a.a-title').attr("href div.a-sum").text.strip}"
        #=>/home/sjwakeman/code/labs/cli-data-gem-assessment-v-000/sa_articles/lib/sa_articles/scraper.rb:18:in `new_from_index_page': undefined method `text'
        #for nil:NilClass (NoMethodError)
-       #{}"https://seekingalpha.com#{r.css('a.a-title').attr("href")("div.a-sum").text.strip}"
+       #"https://seekingalpha.com#{r.css('a.a-title').attr("href")("div.a-sum").text.strip}"
        #scraper.rb:18: syntax error, unexpected '(', e
        #xpecting tSTRING_DEND (SyntaxError)
        #....css('a.a-title').attr("href")("div.a-sum").text.strip}"
@@ -34,7 +34,7 @@ class SaArticles::Scraper
     )
     #binding.pry
 
-      # HTML(open(@link.css("div.article-summary")))#can use link.css to parse summary from URL for article
+      # HTML(open(article_link.css("div.article-summary")))#can use article_link.css to parse summary from URL for article
        #make summary
        #s.css("div.a-sum")# undefined local variable s
        #open("https://seekingalpha.com#{r.css('a.a-title').attr("href")})"
