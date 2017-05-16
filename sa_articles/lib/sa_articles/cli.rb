@@ -40,8 +40,8 @@ class SaArticles::CLI
     puts "What article number would you like more information on?"
     input = gets.strip
 
-    article = SaArticles::Articles.find(input.to_i)
-
+    article = SaArticles::Article.find(input.to_i)
+    SaArticles::Scraper.scrape_summaries(article)
     print_article(article)
 
     puts ""
@@ -75,7 +75,7 @@ class SaArticles::CLI
     puts ""
     puts "---------- Articles #{from_number} - #{from_number+9} ----------"
     puts ""
-    SaArticles::Articles.all[from_number-1, 10].each.with_index(from_number) do |article, index|
+    SaArticles::Article.all[from_number-1, 10].each.with_index(from_number) do |article, index|
       puts "#{index}. #{article.title} - #{article.stock_symbol}"
     end
   end

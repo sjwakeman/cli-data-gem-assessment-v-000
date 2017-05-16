@@ -10,7 +10,7 @@ class SaArticles::Scraper
   end
 
   def new_from_index_page(r)
-    SaArticles::Articles.new(
+    SaArticles::Article.new(
        r.css('div.a-info a').first.text.strip,
        r.css("a.a-title").text.strip,
        "https://seekingalpha.com#{r.css('a.a-title').attr("href")}",
@@ -26,19 +26,9 @@ class SaArticles::Scraper
 
   def self.scrape_summaries(article)
     doc = Nokogiri::HTML(open(article.url))
+
+    article.summary_one = doc.css('div.article-summary .a-sum p:first-child').text
+    article.summary_two = doc.css('div.article-summary .a-sum p:nth-child(2)').text
+    article.summary_three = doc.css('div.article-summary .a-sum p:nth-child(3)').text
   end
-
-    def summary_one
-       doc.css('div.article-summary .a-sum p:first-child').text
-    end
-
-    def summary_two
-       doc.css('div.article-summary .a-sum p:nth-child(2)').text
-    end
-
-    def summary_three
-       doc.css('div.article-summary .a-sum p:nth-child(3)').text
-    end
-
-  end  
 end
