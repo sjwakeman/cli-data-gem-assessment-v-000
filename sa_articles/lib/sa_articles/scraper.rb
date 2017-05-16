@@ -23,4 +23,22 @@ class SaArticles::Scraper
       new_from_index_page(r)
     end
   end
+
+  def self.scrape_summaries(article)
+    doc = Nokogiri::HTML(open(article.url))
+  end
+
+    def summary_one
+       doc.css('div.article-summary .a-sum p:first-child').text
+    end
+
+    def summary_two
+       doc.css('div.article-summary .a-sum p:nth-child(2)').text
+    end
+
+    def summary_three
+       doc.css('div.article-summary .a-sum p:nth-child(3)').text
+    end
+
+  end  
 end
